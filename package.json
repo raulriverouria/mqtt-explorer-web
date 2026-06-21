@@ -1,0 +1,30 @@
+{
+  "name": "mqtt-explorer-web",
+  "version": "1.0.0",
+  "description": "MQTT Explorer – a structured MQTT client for the browser",
+  "author": "Raul Rivero <rivero@raulrivero.es>",
+  "homepage": "https://www.raulrivero.es/",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.3",
+    "mqtt": "^5.6.0",
+    "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.3.1",
+    "zustand": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^6.0.2",
+    "typescript": "^5.4.5",
+    "vite": "^8.0.14"
+  }
+}
