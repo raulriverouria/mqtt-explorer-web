@@ -17,8 +17,8 @@ FROM nginx:alpine
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy built assets
-COPY --from=build /app/dist /usr/share/nginx/html
+# Copy built assets under /mqtt-explorer/
+COPY --from=build /app/dist /usr/share/nginx/html/mqtt-explorer
 
 EXPOSE 80
 

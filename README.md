@@ -107,6 +107,8 @@ npm run preview
 
 ## Despliegue con NGINX
 
+La aplicación se sirve bajo la ruta base `/mqtt-explorer/`. Tanto Vite (`base: '/mqtt-explorer/'`) como la configuración de NGINX están preparadas para ello: la raíz `/` redirige a `/mqtt-explorer/`.
+
 ### Opción 1: Docker (recomendado)
 
 ```bash
@@ -117,7 +119,7 @@ docker build -t mqtt-explorer-web .
 docker run -p 8080:80 mqtt-explorer-web
 ```
 
-Abrir `http://localhost:8080` en el navegador.
+Abrir `http://localhost:8080/mqtt-explorer/` en el navegador (la raíz `/` redirige automáticamente).
 
 ### Opción 2: NGINX manual
 
@@ -125,8 +127,9 @@ Abrir `http://localhost:8080` en el navegador.
 # Build
 npm run build
 
-# Copiar dist/ al directorio de NGINX
-sudo cp -r dist/* /usr/share/nginx/html/
+# Copiar dist/ al directorio de NGINX bajo /mqtt-explorer/
+sudo mkdir -p /usr/share/nginx/html/mqtt-explorer
+sudo cp -r dist/* /usr/share/nginx/html/mqtt-explorer/
 
 # Copiar configuración
 sudo cp nginx.conf /etc/nginx/conf.d/default.conf
@@ -137,7 +140,7 @@ sudo nginx -s reload
 
 ### Opción 3: Cualquier servidor estático
 
-El directorio `dist/` después de `npm run build` contiene archivos estáticos que se pueden servir con cualquier servidor web (NGINX, Apache, Caddy, `python -m http.server`, etc.).
+El directorio `dist/` después de `npm run build` contiene archivos estáticos con rutas prefijadas con `/mqtt-explorer/`. Se puede servir con cualquier servidor web (NGINX, Apache, Caddy, `python -m http.server`, etc.) montando `dist/` en la ruta `/mqtt-explorer/`.
 
 ---
 

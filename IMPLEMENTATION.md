@@ -34,7 +34,9 @@ La aplicación se conecta directamente al broker MQTT mediante **WebSocket** (`w
 ┌─────────────────────────────────────────────────────────┐
 │              Servidor NGINX (solo estático)               │
 │                                                           │
-│   Sirve dist/index.html + assets (JS, CSS, fuentes)      │
+│   Sirve dist/ bajo la ruta base /mqtt-explorer/           │
+│   (assets JS, CSS, fuentes + SPA fallback)                │
+│   La raíz / redirige a /mqtt-explorer/                    │
 │   No procesa lógica de aplicación                        │
 └─────────────────────────────────────────────────────────┘
 ```
