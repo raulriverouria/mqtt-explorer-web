@@ -7,3 +7,4 @@ release
 .git
 *.md
 .vscode
+construye*
